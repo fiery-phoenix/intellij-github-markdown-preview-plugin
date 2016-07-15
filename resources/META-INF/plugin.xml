@@ -1,0 +1,36 @@
+<idea-plugin version="2">
+    <id>fiery-phoenix.sample.md.plugin</id>
+    <name>sample-md</name>
+    <version>1.0</version>
+    <vendor url="https://github.com/fiery-phoenix/sample-intellij-plugin"/>
+
+    <description><![CDATA[
+      Sample plugin
+    ]]></description>
+
+    <change-notes><![CDATA[
+    ]]>
+    </change-notes>
+
+    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+    <idea-version since-build="131"/>
+
+    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+
+    <application-components>
+    </application-components>
+
+    <project-components>
+    </project-components>
+
+    <actions>
+    </actions>
+
+</idea-plugin>

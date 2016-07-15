@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        maven { url 'http://dl.bintray.com/jetbrains/intellij-plugin-service' }
+    }
+}
+
+plugins {
+    id 'org.jetbrains.intellij' version "0.1.10"
+}
+
+apply plugin: 'java'
+apply plugin: 'org.jetbrains.intellij'
+
+group 'fiery-phoenix'
+version '0.1'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+wrapper {
+    gradleVersion = '2.13'
+}
+
+sourceSets {
+    main.resources.srcDirs = ['resources']
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+intellij {
+    pluginName 'sample-md'
+}
