@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>fiery-phoenix.sample.md.plugin</id>
     <name>sample-md</name>
-    <version>1.0</version>
+    <version>0.1</version>
     <vendor url="https://github.com/fiery-phoenix/sample-intellij-plugin"/>
 
     <description><![CDATA[
@@ -31,6 +31,14 @@
     </project-components>
 
     <actions>
+        <group id="sample-md.SampleMenu" text="_Sample Menu" description="Sample menu">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+        </group>
+
+        <action id="FieryMD.ViewMdFile" class="org.fiery.md.actions.PreviewMdFile" text="Preview *.md file"
+                description="Run test action">
+            <add-to-group group-id="sample-md.SampleMenu"/>
+        </action>
     </actions>
 
 </idea-plugin>
