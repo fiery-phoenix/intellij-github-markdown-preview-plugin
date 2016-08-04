@@ -31,14 +31,10 @@
     </project-components>
 
     <actions>
-        <group id="sample-md.SampleMenu" text="_Sample Menu" description="Sample menu">
-            <add-to-group group-id="MainMenu" anchor="last"/>
+        <group id="sample-md.PreviewMarkdown" text="_Preview markdown" description="Markdown preview menu"
+               class="org.fiery.md.actions.PreviewMdFileActionGroup">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
         </group>
-
-        <action id="FieryMD.ViewMdFile" class="org.fiery.md.actions.PreviewMdFile" text="Preview *.md file"
-                description="Run test action">
-            <add-to-group group-id="sample-md.SampleMenu"/>
-        </action>
     </actions>
 
 </idea-plugin>
