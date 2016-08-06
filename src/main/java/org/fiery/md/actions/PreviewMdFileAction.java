@@ -40,6 +40,7 @@ public class PreviewMdFileAction extends AnAction {
 
             BrowserLauncher.getInstance()
                            .browse(VfsUtil.toUri(file).toURL().toExternalForm(), browser);
+            file.deleteOnExit();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
