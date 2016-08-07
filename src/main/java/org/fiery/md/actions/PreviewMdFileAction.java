@@ -4,10 +4,12 @@ import com.intellij.ide.browsers.BrowserLauncher;
 import com.intellij.ide.browsers.WebBrowser;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.actionSystem.DataKeys;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.vfs.VfsUtil;
+import com.intellij.openapi.vfs.VirtualFile;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,22 +27,22 @@ public class PreviewMdFileAction extends AnAction {
     }
 
     public void actionPerformed(AnActionEvent event) {
-        Editor currentEditor = DataKeys.EDITOR.getData(event.getDataContext());
+        DataContext dataContext = event.getDataContext();
+        Editor currentEditor = DataKeys.EDITOR.getData(dataContext);
+        VirtualFile currentFile = DataKeys.VIRTUAL_FILE.getData(dataContext);
         Document document = currentEditor == null ? null : currentEditor.getDocument();
-        if (document == null) {
+        if (document == null || currentFile == null) {
             return;
         }
         try {
-            File file = File.createTempFile("markdown", ".html");
+            File tempFile = File.createTempFile(currentFile.getNameWithoutExtension(), ".md");
 
-            try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file),
+            try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(tempFile),
                                                                     Charset.forName("UTF-8"))) {
-                writer.write(new GitMarkdownHelper().toGitMarkdownHtml(document));
+                writer.write(new GithubMarkdownHelper().toGitMarkdownHtml(currentFile.getName(), document));
             }
-
-            BrowserLauncher.getInstance()
-                           .browse(VfsUtil.toUri(file).toURL().toExternalForm(), browser);
-            file.deleteOnExit();
+            BrowserLauncher.getInstance().browse(VfsUtil.toUri(tempFile).toURL().toExternalForm(), browser);
+            tempFile.deleteOnExit();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
