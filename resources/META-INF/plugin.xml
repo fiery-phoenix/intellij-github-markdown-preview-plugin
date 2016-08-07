@@ -1,25 +1,20 @@
 <idea-plugin version="2">
-    <id>fiery-phoenix.sample.md.plugin</id>
-    <name>sample-md</name>
+    <id>fiery-phoenix.github-markdown-preview</id>
+    <name>GitHub markdown preview</name>
     <version>0.1</version>
-    <vendor url="https://github.com/fiery-phoenix/sample-intellij-plugin"/>
+    <vendor url="https://github.com/fiery-phoenix/intellij-github-markdown-preview-plugin"/>
 
     <description><![CDATA[
-      Sample plugin
+      Support for github markdown preview
     ]]></description>
 
     <change-notes><![CDATA[
     ]]>
     </change-notes>
 
-    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
     <idea-version since-build="131"/>
 
-    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
     <depends>com.intellij.modules.lang</depends>
-    -->
 
     <extensions defaultExtensionNs="com.intellij">
     </extensions>
@@ -31,8 +26,9 @@
     </project-components>
 
     <actions>
-        <group id="sample-md.PreviewMarkdown" text="_Preview markdown" description="Markdown preview menu"
-               class="org.fiery.md.actions.PreviewMdFileActionGroup">
+        <group id="github-markdown-preview.PreviewMarkdown" text="_Preview markdown"
+               description="GitHub markdown preview menu"
+               class="org.fiery.md.preview.actions.PreviewMdFileActionGroup">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
         </group>
     </actions>

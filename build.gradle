@@ -34,5 +34,5 @@ dependencies {
 }
 
 intellij {
-    pluginName 'sample-md'
+    pluginName 'GitHub markdown preview'
 }

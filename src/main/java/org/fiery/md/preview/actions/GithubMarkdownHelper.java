@@ -1,4 +1,4 @@
-package org.fiery.md.actions;
+package org.fiery.md.preview.actions;
 
 import com.intellij.openapi.editor.Document;
 import org.apache.commons.lang.StringEscapeUtils;

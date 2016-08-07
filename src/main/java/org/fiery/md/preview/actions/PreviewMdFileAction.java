@@ -1,4 +1,4 @@
-package org.fiery.md.actions;
+package org.fiery.md.preview.actions;
 
 import com.intellij.ide.browsers.BrowserLauncher;
 import com.intellij.ide.browsers.WebBrowser;
