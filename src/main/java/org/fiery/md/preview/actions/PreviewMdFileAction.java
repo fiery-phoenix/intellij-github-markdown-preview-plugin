@@ -35,7 +35,7 @@ public class PreviewMdFileAction extends AnAction {
             return;
         }
         try {
-            File tempFile = File.createTempFile(currentFile.getNameWithoutExtension(), ".md");
+            File tempFile = File.createTempFile(currentFile.getNameWithoutExtension(), ".html");
 
             try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(tempFile),
                                                                     Charset.forName("UTF-8"))) {

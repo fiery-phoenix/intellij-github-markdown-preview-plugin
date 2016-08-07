@@ -16,7 +16,11 @@ import java.util.List;
 public class PreviewMdFileActionGroup extends ComputableActionGroup {
 
     public PreviewMdFileActionGroup() {
-        super(true);
+        this(true);
+    }
+
+    public PreviewMdFileActionGroup(boolean popup) {
+        super(popup);
     }
 
     @NotNull

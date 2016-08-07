@@ -26,10 +26,16 @@
     </project-components>
 
     <actions>
-        <group id="github-markdown-preview.PreviewMarkdown" text="_Preview markdown"
+        <group id="github-markdown-preview.PreviewMarkdownPopup" text="_Preview markdown"
                description="GitHub markdown preview menu"
                class="org.fiery.md.preview.actions.PreviewMdFileActionGroup">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </group>
+
+        <group id="github-markdown-preview.PreviewMarkdown"
+               class="org.fiery.md.preview.actions.PreviewMdFileActionGroup"
+               description="GitHub markdown preview menu" popup="false">
+            <add-to-group group-id="EditorContextBarMenu" anchor="last"/>
         </group>
     </actions>
 
